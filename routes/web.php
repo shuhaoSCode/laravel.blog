@@ -15,7 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/articles','ArticlesController@index');
-Route::get('/articles/{id}','ArticlesController@show');
-Route::get('/articles','ArticlesController@create');
+//Route::get('/articles/aa', 'ArticlesController@create');
+//
+//Route::get('/articles/{id}', 'ArticlesController@show');
+//
+//Route::get('/articles/asdf', 'ArticlesController@create');
 
+
+Route::group(['prefix' => 'articles'], function () {
+    Route::get('/', 'ArticlesController@index');
+    Route::get('/show/{id}', 'ArticlesController@show');
+    Route::get('/create', 'ArticlesController@create');
+    Route::post('/', 'ArticlesController@store');
+});

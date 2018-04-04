@@ -2,13 +2,13 @@
 
 @section('content')
     <br/>
-    <h1>Articles</h1>
+    <h2>Articles</h2>
     <hr>
     @foreach($articles as $article)
-        <h2><a href="{{ url('/articles',$article->id) }}">{{ $article->title }}</a></h2>
+        <h3><a href="{{ url('/articles/show',$article->id) }}">{{ $article->title }}</a></h3>
         <article>
             <div class="body">
-                {{ $article->content }}
+                姓名：<a href="http://google.com">{{ $article->content }}</a>
             </div>
         </article>
     @endforeach
